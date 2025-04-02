@@ -26,6 +26,6 @@ services:
     container_name: ui-api
     restart: unless-stopped
     ports:
-      - "5000:5000"
+      - "8080:8080"
     volumes:
       - ./delay-streamer:/delay-streamer
