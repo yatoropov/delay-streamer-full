@@ -19,3 +19,13 @@ services:
       - rtmp-server
     volumes:
       - ./delay-streamer:/app
+
+  ui-api:
+    build:
+      context: ./ui-api
+    container_name: ui-api
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./delay-streamer:/delay-streamer
