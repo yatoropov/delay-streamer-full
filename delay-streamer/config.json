@@ -1,0 +1,6 @@
+{
+  "stream_key": "delay",
+  "delay_minutes": 1,
+  "output_rtmp": "rtmp://rtmp-server/live/delayed",
+  "record_file": "buffer.flv"
+}
