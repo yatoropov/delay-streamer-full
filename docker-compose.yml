@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  rtmp-server:
+    build:
+      context: ./rtmp-server
+    container_name: rtmp-server
+    restart: unless-stopped
+    ports:
+      - "1935:1935"
+      - "8080:80"
+
+  delay-streamer:
+    build:
+      context: ./delay-streamer
+    container_name: delay-streamer
+    restart: unless-stopped
+    depends_on:
+      - rtmp-server
+    volumes:
+      - ./delay-streamer:/app
