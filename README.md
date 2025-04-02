@@ -1,2 +1,3 @@
 # delay-streamer-full
-New restream with delay docker.
+Restream with delay. 
+Docker.
