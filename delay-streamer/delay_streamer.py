@@ -11,7 +11,7 @@ def load_config():
 def start_recording(input_url, record_file):
     print("▶️ Starting recording...")
     return subprocess.Popen([
-        "ffmpeg", "-i", input_url, "-c", "copy", "-f", "flv", record_file
+        "ffmpeg", "-y", "-i", input_url, "-c", "copy", "-f", "flv", record_file
     ])
 
 def start_restream(record_file, output_url):
