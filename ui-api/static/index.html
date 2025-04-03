@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delay Streamer UI</title>
+  <style>
+    body { font-family: sans-serif; max-width: 500px; margin: 50px auto; }
+    input, button { width: 100%; padding: 10px; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h1>Delay Streamer UI</h1>
+  <label>Затримка (хвилин):</label>
+  <input id="delay" type="number" />
+  <label>Output RTMP URL:</label>
+  <input id="output" type="text" />
+  <button onclick="saveConfig()">💾 Зберегти</button>
+  <p id="status"></p>
+  <script>
+    async function loadConfig() {
+      const res = await fetch("/api/config");
+      const cfg = await res.json();
+      document.getElementById("delay").value = cfg.delay_minutes;
+      document.getElementById("output").value = cfg.output_rtmp;
+    }
+
+    async function saveConfig() {
+      const delay = document.getElementById("delay").value;
+      const output = document.getElementById("output").value;
+      const res = await fetch("/api/config", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ delay_minutes: parseInt(delay), output_rtmp: output })
+      });
+      document.getElementById("status").innerText = res.ok ? "✅ Збережено" : "❌ Помилка";
+    }
+
+    loadConfig();
+  </script>
+</body>
+</html>
