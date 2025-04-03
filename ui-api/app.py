@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import json
 import os
@@ -20,10 +22,6 @@ class ConfigModel(BaseModel):
     delay_minutes: int
     output_rtmp: str
 
-@app.get("/")
-def root():
-    return {"message": "Delay Streamer API running"}
-
 @app.get("/api/config")
 def get_config():
     if not os.path.exists(CONFIG_PATH):
@@ -36,3 +34,10 @@ def update_config(data: ConfigModel):
     with open(CONFIG_PATH, "w") as f:
         json.dump(data.dict(), f, indent=2)
     return {"status": "ok"}
+
+# Serve frontend
+app.mount("/static", StaticFiles(directory="static", html=True), name="static")
+
+@app.get("/")
+def serve_index():
+    return FileResponse("static/index.html")
