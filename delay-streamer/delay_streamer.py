@@ -23,16 +23,23 @@ def start_restream(record_file, output_url):
 def main():
     config = load_config()
 
-    stream_key = config["stream_key"]
-    delay_minutes = config["delay_minutes"]
-    output_rtmp = config["output_rtmp"]
-    record_file = config["record_file"]
+    stream_key = config.get("stream_key", "delay")
+    delay_minutes = config.get("delay_minutes", 1)
+    output_rtmp = config.get("output_rtmp", "")
+    record_file = config.get("record_file", "buffer.flv")
 
     input_url = f"rtmp://rtmp-server/live/{stream_key}"
 
+    if delay_minutes == 0:
+        print("⚡ Прямий рестрім без затримки")
+        subprocess.call([
+            "ffmpeg", "-i", input_url, "-c", "copy", "-f", "flv", output_rtmp
+        ])
+        return
+
     recorder = start_recording(input_url, record_file)
 
-    print(f"⏳ Waiting {delay_minutes} minutes before restream...")
+    print(f"⏳ Затримка {delay_minutes} хвилин перед рестрімом...")
     time.sleep(delay_minutes * 60)
 
     restreamer = start_restream(record_file, output_rtmp)
