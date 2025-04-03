@@ -1,6 +1,6 @@
 {
   "stream_key": "delay",
   "delay_minutes": 1,
-  "output_rtmp": "rtmp://a.rtmp.youtube.com/live2",
+  "output_rtmp": "rtmp://a.rtmp.youtube.com/live2/key",
   "record_file": "buffer.flv"
 }
