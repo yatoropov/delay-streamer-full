@@ -31,8 +31,13 @@ def get_config():
 
 @app.post("/api/config")
 def update_config(data: ConfigModel):
+    config = {}
+    if os.path.exists(CONFIG_PATH):
+        with open(CONFIG_PATH) as f:
+            config = json.load(f)
+    config.update(data.dict())
     with open(CONFIG_PATH, "w") as f:
-        json.dump(data.dict(), f, indent=2)
+        json.dump(config, f, indent=2)
     return {"status": "ok"}
 
 # Serve frontend
