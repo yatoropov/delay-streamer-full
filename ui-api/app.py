@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import json
@@ -16,9 +16,13 @@ app.add_middleware(
 
 CONFIG_PATH = "/delay-streamer/config.json"
 
-class Config(BaseModel):
+class ConfigModel(BaseModel):
     delay_minutes: int
     output_rtmp: str
+
+@app.get("/")
+def root():
+    return {"message": "Delay Streamer API running"}
 
 @app.get("/api/config")
 def get_config():
@@ -28,7 +32,7 @@ def get_config():
         return json.load(f)
 
 @app.post("/api/config")
-def update_config(data: Config):
+def update_config(data: ConfigModel):
     with open(CONFIG_PATH, "w") as f:
         json.dump(data.dict(), f, indent=2)
     return {"status": "ok"}
