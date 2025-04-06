@@ -13,9 +13,10 @@ RESTEAM is a convenient solution for organizing live broadcasts through an RTMP 
 - Ubuntu 20.04+ / Debian 10+ server
 - Docker and Docker Compose v2.0
 
-sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
+```
 
 
 ## Installation
