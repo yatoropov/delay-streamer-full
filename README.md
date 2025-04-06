@@ -24,11 +24,21 @@ cd delay-streamer-full
 
 ### 2. Конфігурація
 
-- Відредагуйте файл `.env`, додавши свої параметри:
+- Відредагуйте файл конфігурації, що знаходиться за шляхом:
 
-```env
-RTMP_SERVER_URL=your_rtmp_url
-STREAM_DELAY_MINUTES=30
+```
+delay-streamer-full/delay-streamer/config.json
+```
+
+Приклад налаштувань:
+
+```json
+{
+  "stream_key": "delay",          // Ключ потоку, за допомогою якого буде прийматися RTMP-потік
+  "delay_minutes": 30,            // Затримка трансляції в хвилинах
+  "output_rtmp": "rtmp://a.rtmp.youtube.com/live2/key",  // Адреса, куди буде відправлятись затриманий потік
+  "record_file": "buffer.flv"    // Назва файлу, який використовується для тимчасового зберігання трансляції
+}
 ```
 
 ### 3. Запуск
