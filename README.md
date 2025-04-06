@@ -1,66 +1,69 @@
-# RESTEAM / RTMP ПРОЄКТ
+# RESTEAM / RTMP PROJECT
 
-Проєкт RESTEAM — це зручне рішення для організації трансляцій прямих ефірів через RTMP сервер з можливістю затримки трансляції (відкладеного рестріму).
+RESTEAM is a convenient solution for organizing live broadcasts through an RTMP server with the capability of delayed streaming.
 
-## Основний функціонал
+## Main Features
 
-- **RTMP сервер:** Прийом та рестрім трансляцій.
-- **Затримка трансляції:** Можливість налаштовувати затримку ефіру (наприклад, 30 хвилин).
-- **Web-інтерфейс:** Керування затримкою та RTMP-адресою через зручний веб-інтерфейс.
+- **RTMP Server:** Receive and restream broadcasts.
+- **Stream Delay:** Ability to set stream delay (e.g., 30 minutes).
+- **Web Interface:** Easy management of delay settings and RTMP URLs through a user-friendly web interface.
 
-## Вимоги
+## Requirements
 
-- Сервер з Ubuntu 20.04+ / Debian 10+
-- Docker та Docker Compose
+- Ubuntu 20.04+ / Debian 10+ server
+- Docker and Docker Compose
 
-## Встановлення
+## Installation
 
-### 1. Клонування репозиторію
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/yatoropov/delay-streamer-full.git
 cd delay-streamer-full
 ```
 
-### 2. Конфігурація
+### 2. Configuration
 
-- Відредагуйте файл конфігурації, що знаходиться за шляхом:
+Edit the configuration file located at:
 
 ```
 delay-streamer-full/delay-streamer/config.json
 ```
 
-Приклад налаштувань:
+Example configuration:
 
 ```json
 {
-  "stream_key": "delay",          // Ключ потоку, за допомогою якого буде прийматися RTMP-потік
-  "delay_minutes": 30,            // Затримка трансляції в хвилинах
-  "output_rtmp": "rtmp://a.rtmp.youtube.com/live2/key",  // Адреса, куди буде відправлятись затриманий потік
-  "record_file": "buffer.flv"    // Назва файлу, який використовується для тимчасового зберігання трансляції
+  "stream_key": "delay",          // Stream key used to receive the RTMP stream
+  "delay_minutes": 30,            // Delay duration in minutes
+  "output_rtmp": "rtmp://a.rtmp.youtube.com/live2/key",  // URL to forward the delayed stream
+  "record_file": "buffer.flv"    // Temporary file name used for storing the stream
 }
 ```
 
-### 3. Запуск
+### 3. Launch the application
 
 ```bash
 docker-compose up -d
 ```
 
-Проєкт буде доступний за адресою: `http://your-server-address:5000`
+The application will be available at: `http://your-server-address:5000`
 
-## Використання
+## Usage
 
-Після запуску відкрийте веб-інтерфейс за адресою `http://your-server-address:5000`, змініть необхідні налаштування (затримка трансляції, RTMP-адреса) і запустіть трансляцію.
+After launch, open the web interface at `http://your-server-address:5000`, adjust settings as needed (stream delay, RTMP URL), and start streaming.
 
-## Внесок у розвиток
+## Contributing
 
-Будемо вдячні за ваші pull-запити та ідеї!
+We welcome your pull requests and ideas!
 
-## Ліцензія
+## License
 
-Цей проєкт поширюється під ліцензією MIT.
+This project is licensed under the MIT License.
 
 ---
-Автор: [ваше ім'я або назва вашої організації]
+Author: OnlineStage
+
+
+
 
