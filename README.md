@@ -82,7 +82,7 @@ Web-Ui буде доступна за адресою: `http://<your-server-addre
 ## B) Автоматичне встановлення за запуск (включно з Docker) на чистий сервер з Ubuntu 20.04+ / Debian 10+ 
 
 ```bash
-wget https://github.com/yatoropov/delay-streamer-full/blob/d20d9779525ad4ac6589a9b532ef124ff1cfab96/install.sh
+wget https://raw.githubusercontent.com/yatoropov/delay-streamer-full/d2bb1a34aaa1f540812a05667d3ac3e483d804af/install.sh
 sudo chmod +x install.sh
 ./install.sh
 ```
