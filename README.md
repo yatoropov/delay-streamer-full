@@ -43,14 +43,6 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo docker run hello-world
 ```
 
-- Docker Compose v2.0
-
-```bash
-mkdir -p ~/.docker/cli-plugins/
-curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
-chmod +x ~/.docker/cli-plugins/docker-compose
-```
-
 ## Встановлення
 
 ### 1. Клонування репозиторію
@@ -82,7 +74,7 @@ delay-streamer-full/delay-streamer/config.json
 ### 3. Запуск
 
 ```bash
-docker compose up --build -d
+sudo docker compose up --build -d
 ```
 
 Web-Ui буде доступна за адресою: `http://<your-server-address>:5000`
