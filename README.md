@@ -16,7 +16,14 @@
 ## Вимоги
 
 - Сервер з Ubuntu 20.04+ / Debian 10+
-- Docker та Docker Compose
+- Docker та Docker Compose v2.0
+
+Встановлення вірного Docker Compose v2.0: 
+```bash
+mkdir -p ~/.docker/cli-plugins/
+curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+chmod +x ~/.docker/cli-plugins/docker-compose
+```
 
 ## Встановлення
 
