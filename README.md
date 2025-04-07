@@ -82,7 +82,7 @@ delay-streamer-full/delay-streamer/config.json
 ### 3. Запуск
 
 ```bash
-docker-compose up -d
+docker compose up --build -d
 ```
 
 Web-Ui буде доступна за адресою: `http://<your-server-address>:5000`
