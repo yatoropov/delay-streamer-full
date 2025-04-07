@@ -79,7 +79,7 @@ sudo docker compose up --build -d
 
 Web-Ui буде доступна за адресою: `http://<your-server-address>:5000`
 
-## B) Автоматичне встановлення за запуск (включно з Docker) на чистий сервер з Ubuntu 20.04+ / Debian 10+ 
+## B) Автоматичне встановлення та запуск (включно з Docker) на чистий сервер з Ubuntu 20.04+ / Debian 10+ 
 
 ```bash
 wget https://raw.githubusercontent.com/yatoropov/delay-streamer-full/d2bb1a34aaa1f540812a05667d3ac3e483d804af/install.sh
