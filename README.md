@@ -4,7 +4,7 @@
 
 ## Основний функціонал
 
-- Приймає трансляцію на rtmp://*your-server-address*/live/delay
+- Приймає трансляцію на `rtmp://<your-server-address>/live/delay`
 - Записує її в файл
 - Через вказану затримку запускає рестрім на іншу адресу
 
@@ -85,13 +85,13 @@ delay-streamer-full/delay-streamer/config.json
 docker-compose up -d
 ```
 
-Web-Ui буде доступна за адресою: `http://*your-server-address*:5000`
+Web-Ui буде доступна за адресою: `http://<your-server-address>:5000`
 
 ## Використання
 
-Після запуску відкрийте веб-інтерфейс за адресою `http://*your-server-address*:5000`, змініть необхідні налаштування (затримка трансляції, RTMP-адреса).
+Після запуску відкрийте веб-інтерфейс за адресою `http://<your-server-address>:5000`, змініть необхідні налаштування (затримка трансляції, RTMP-адреса).
 
-Запустіть трансляцію на свій DELAY-STREAMER сервер: `rtmp://*your-server-address*/live/delay`.
+Запустіть трансляцію на свій DELAY-STREAMER сервер: `rtmp://<your-server-address>/live/delay`.
 
 Enjoy!
 
