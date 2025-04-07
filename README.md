@@ -43,7 +43,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo docker run hello-world
 ```
 
-## Встановлення
+## Встановлення ручне
 
 ### 1. Клонування репозиторію
 
@@ -78,6 +78,14 @@ sudo docker compose up --build -d
 ```
 
 Web-Ui буде доступна за адресою: `http://<your-server-address>:5000`
+
+## Встановлення на чистий сервер з Ubuntu 20.04+ / Debian 10+ 
+
+```bash
+wget https://github.com/yatoropov/delay-streamer-full/blob/d20d9779525ad4ac6589a9b532ef124ff1cfab96/install.sh
+sudo chmod +x install.sh
+./install.sh
+```
 
 ## Використання
 
