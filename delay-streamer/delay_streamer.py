@@ -42,6 +42,9 @@ def main():
     print(f"⏳ Затримка {delay_minutes} хвилин перед рестрімом...")
     time.sleep(delay_minutes * 60)
 
+    print("🔄 Оновлюю конфіг після затримки...")
+    config = load_config()
+
     restreamer = start_restream(record_file, output_rtmp)
 
     restreamer.wait()
